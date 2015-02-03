@@ -20,8 +20,8 @@ sensor_data_all <- rbind.pages(pages)
 
 # process data
 sensor_data <- flatten(sensor_data_all, recursive = TRUE) %>%
-  rename(airquality=data.airquality, airquality_raw=data.airquality_raw, dust=data.dust, humidity=data.humidity, light=data.light, sound=data.sound, temperature=data.temperature, uv=data.uv) %>%
-  select(timestamp, airquality_raw, dust, humidity, light, sound, temperature, uv) %>%
+  rename(airquality_raw=data.airquality_raw, dust=data.dust, humidity=data.humidity, light=data.light, sound=data.sound, temperature=data.temperature, uv=data.uv) %>%
+  select(timestamp, temperature, humidity, light, sound, airquality_raw, dust, uv) %>%
   mutate(timestamp=as.POSIXct(strptime(timestamp, "%Y-%m-%dT%H:%M:%S.000Z"))) %>%
   filter(timestamp>"2015-01-17 00:00:00")
 
