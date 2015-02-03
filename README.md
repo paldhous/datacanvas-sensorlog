@@ -1,6 +1,6 @@
 # datacanvas-sensorlog
 
-I am taking part in [Data Canvas: Sense Your City](http://datacanvas.org/sense-your-city/), a project to build a network of 100 sensors in seven cities around the world: San Francisco, Boston, Rio de Janeiro, Geneva, Bangalore, Singapore and Shanghai.
+I am taking part in [Data Canvas: Sense Your City](http://datacanvas.org/sense-your-city/), a project to build a network of 100 sensor nodes in seven cities around the world: San Francisco, Boston, Rio de Janeiro, Geneva, Bangalore, Singapore and Shanghai.
 
 This app displays the output from a single sensor node. You can view it live [here](https://paldhous.shinyapps.io/datacanvas-sensor/), displaying data from my sensor node in San Francisco.
 
@@ -10,7 +10,7 @@ See [here](http://datacanvas.org/wp-content/uploads/2015/01/Data-Canvas-Sense-Yo
 
 - Install [R](http://www.r-project.org/) and [RStudio](http://www.rstudio.com/). In R Studio, install/update the packages on which the R scripts depend: [jsonlite](http://cran.r-project.org/web/packages/jsonlite/index.html), [dplyr](http://cran.r-project.org/web/packages/dplyr/index.html), [ggplot2](http://cran.r-project.org/web/packages/ggplot2/index.html), [scales](http://cran.r-project.org/web/packages/scales/index.html), [shiny](http://cran.r-project.org/web/packages/shiny/index.html), [markdown](http://cran.r-project.org/web/packages/markdown/index.html) and [BH](http://cran.r-project.org/web/packages/BH/index.html). [Here](http://dss.princeton.edu/training/RStudio101.pdf) is an introduction to working with RStudio, including how to install packages.
 
-- `get_data.R` retrieves your sensor node data. You will need to replace `[Your-ID]` with the ID for your own sensor node before running the script, and `[Path-to-file]` to the location on your computer where the data file will be saved.
+- `get_data.R` retrieves your sensor node data. You will need to replace `[Your-ID]` with the ID for your own sensor node before running the script, and `[Path-to-file]` with the location on your computer where the data file will be saved.
 
 - Upload the resulting file `sensor_data.csv` to a webserver that allows you to run [cron jobs](http://en.wikipedia.org/wiki/Cron).
 
