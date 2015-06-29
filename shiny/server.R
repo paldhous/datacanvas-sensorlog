@@ -1,6 +1,7 @@
 library(dplyr)
 library(ggplot2)
 library(scales)
+library(readr)
 
 shinyServer(function(input, output) {
   
@@ -12,12 +13,12 @@ shinyServer(function(input, output) {
   progress$set(message = "Loading data. This may take a while!")
  
   # Get the data
-  sensor_data <- read.csv("[URL]/sensor_data.csv", header = TRUE)
+  sensor_data <- read.csv("http://peteraldhous.com/datacanvas/sensor_data.csv", header = TRUE)
   
   # Process the data
   sensor_data <- select(sensor_data, timestamp, airquality_raw, dust, humidity, light, sound, temperature, uv) %>%
     mutate(timestamp=as.POSIXct(strptime(timestamp, "%Y-%m-%d %H:%M:%S"))) %>%
-    filter(timestamp > "2015-01-17 00:00:00")
+    filter(timestamp > "2015-05-01 00:00:00")
   
   # Render the plot
   output$plot <- renderPlot({
@@ -29,8 +30,7 @@ shinyServer(function(input, output) {
                    "Light" = sensor_data$light,                   
                    "Sound" = sensor_data$sound,                   
                    "Air quality" = sensor_data$airquality_raw,                   
-                   "Dust" = sensor_data$dust,                   
-                   "UV" = sensor_data$uv
+                   "Dust" = sensor_data$dust
     )
     
     # Input from date range select control

@@ -17,15 +17,15 @@ shinyUI(fluidPage(
       
       selectInput("var", 
                   label = h4("Choose sensor:"),
-                  choices = list("Temperature", "Humidity", "Light", "Sound", "Air quality", "Dust", "UV"),
+                  choices = list("Temperature", "Humidity", "Light", "Sound", "Air quality", "Dust"),
                   selected = "Temperature"
                   ),
  
       dateRangeInput("dates", 
                   label = h4("Date range:"), 
-                  start = "2015-01-17", 
+                  start = Sys.Date()-30, 
                   end = Sys.Date()+2, 
-                  min = "2015-01-17", 
+                  min = "2015-06-01", 
                   max = NULL, 
                   format = "yyyy-mm-dd", 
                   startview = "month", 
@@ -34,7 +34,7 @@ shinyUI(fluidPage(
                   separator = " to "
                   ),
       
-      p("(Times UTC; data refreshed hourly)")
+      p("(Times UTC; data refreshed hourly.)")
             
     ),
     
